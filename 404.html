@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var basePath = "/platformprototype";
+        var path = window.location.pathname;
+
+        if (path.startsWith(basePath)) {
+          path = path.slice(basePath.length);
+        }
+
+        var redirectRoute = path + window.location.search + window.location.hash;
+        var normalizedRoute = redirectRoute.startsWith("/")
+          ? redirectRoute.slice(1)
+          : redirectRoute;
+
+        var target =
+          window.location.origin +
+          basePath +
+          "/?redirect=" +
+          encodeURIComponent(normalizedRoute);
+
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
