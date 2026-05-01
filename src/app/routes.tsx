@@ -11,4 +11,6 @@ export const router = createBrowserRouter([
     path: "/ai-platform",
     Component: AIPlatformPage,
   },
-]);
+], {
+  basename: import.meta.env.BASE_URL,
+});
